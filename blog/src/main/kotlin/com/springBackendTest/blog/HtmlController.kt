@@ -6,7 +6,9 @@ import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.server.ResponseStatusException
+import javax.servlet.http.HttpServletRequest
 
 @Controller
 class HtmlController(private val repository: ArticleRepository,
@@ -30,6 +32,11 @@ class HtmlController(private val repository: ArticleRepository,
     model["article"] = article
     return "article"
   }
+
+//  @RequestMapping("/success")
+//  fun success(request: HttpServletRequest): String {
+//    return "success"
+//  }
 
   fun Article.render() = RenderedArticle(
           slug,

@@ -41,6 +41,9 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-api")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 	testImplementation("com.ninja-squad:springmockk:1.1.3")
+
+	implementation ("org.springframework.boot:spring-boot-starter-security")
+	implementation ("org.thymeleaf.extras:thymeleaf-extras-springsecurity5")
 }
 
 tasks.withType<Test> {
