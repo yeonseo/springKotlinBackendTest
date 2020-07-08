@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest
 class AccountController {
     @RequestMapping("/success")
     fun success(request: HttpServletRequest, model: Model): String {
+        model["title"] = "Login"
         return "success"
     }
 }
