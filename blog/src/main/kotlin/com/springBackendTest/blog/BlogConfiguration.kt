@@ -24,5 +24,17 @@ class BlogConfiguration {
                 content = "dolor sit amet",
                 author = smaldini
         ))
+        articleRepository.save(Article(
+                title = "게시물의 예시 #1",
+                headline = "Lorem ipsum",
+                content = "dolor sit amet",
+                author = smaldini
+        ))
+        articleRepository.save(Article(
+                title = "게시물 #2",
+                headline = "Lorem ipsum",
+                content = "dolor sit amet",
+                author = smaldini
+        ))
     }
 }
