@@ -3,6 +3,7 @@ package com.springBackendTest.blog.config
 import com.springBackendTest.blog.account.AccountService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -29,7 +30,15 @@ class SecurityConfig (@Autowired private val accountService: AccountService,
             .formLogin()
             .successForwardUrl(LOGIN_SUCCESS_URL)
             .and()
+            .csrf().disable()
             .authorizeRequests()
+            .antMatchers("/", "/article/**","/api/**", "/logout", "/error").permitAll()
+            .antMatchers("/admin/**").hasAnyRole("ADMIN")
+            .antMatchers("/user/**").hasAnyRole("USER")
+            .antMatchers(HttpMethod.GET,"/article/**").permitAll()
+            .antMatchers(HttpMethod.POST,"/article/**").permitAll()
+            .antMatchers(HttpMethod.PUT,"/article/**").permitAll()
+            .antMatchers(HttpMethod.DELETE,"/article/**").permitAll()
             .anyRequest().authenticated()
     }
 }

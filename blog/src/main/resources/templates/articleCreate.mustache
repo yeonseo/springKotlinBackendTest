@@ -1,0 +1,18 @@
+{{> header}}
+
+<section class="article">
+    <header class="article-header">
+        <h1 class="article-title">Success!!!</h1>
+        <p class="article-meta"><strong>Success!!!!</strong></p>
+
+        <form th:object="${requestArticle}" action="/article/create" id="requestArticle" name="requestArticle" method="POST">
+            <input name="title">{{article.title}}<br>
+            <input name="headline">{{article.headline}}<br>
+            <input name="content">{{article.content}}<br>
+            <input name="author">{{article.author}}<br>
+            <button type="submit">확인</button>
+        </form>
+    </header>
+</section>
+
+{{> footer}}
