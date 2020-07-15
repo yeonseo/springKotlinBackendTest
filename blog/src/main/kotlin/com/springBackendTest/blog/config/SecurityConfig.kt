@@ -25,20 +25,20 @@ class SecurityConfig (@Autowired private val accountService: AccountService,
     }
 
     override fun configure(http: HttpSecurity) {
-        http.anonymous()
-            .and()
-            .formLogin()
-            .successForwardUrl(LOGIN_SUCCESS_URL)
-            .and()
-            .csrf().disable()
-            .authorizeRequests()
-            .antMatchers("/", "/article/**","/api/**", "/logout", "/error").permitAll()
-            .antMatchers("/admin/**").hasAnyRole("ADMIN")
-            .antMatchers("/user/**").hasAnyRole("USER")
-            .antMatchers(HttpMethod.GET,"/article/**").permitAll()
-            .antMatchers(HttpMethod.POST,"/article/**").permitAll()
-            .antMatchers(HttpMethod.PUT,"/article/**").permitAll()
-            .antMatchers(HttpMethod.DELETE,"/article/**").permitAll()
-            .anyRequest().authenticated()
+        http
+                .anonymous()
+                    .and()
+                .authorizeRequests()
+                    .antMatchers("/css/**", "/index").permitAll()
+                    .antMatchers("/user/**").hasRole("USER")
+                    .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                    .antMatchers("/user/**").hasAnyRole("USER")
+//                    .antMatchers(HttpMethod.GET,"/**").permitAll()
+//                    .anyRequest().authenticated()
+                    .and()
+                .formLogin()
+                    .successForwardUrl(LOGIN_SUCCESS_URL)
+                    .and()
+//                .csrf().disable()
     }
 }
