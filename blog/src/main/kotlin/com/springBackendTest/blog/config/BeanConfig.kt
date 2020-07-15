@@ -37,6 +37,16 @@ class BeanConfig {
                         "password",
                         mutableSetOf(AccountRole.ADMIN, AccountRole.USER))
                 accountService.saveAccount(admin)
+                val testUser = Account(
+                        "yan",
+                        "ys",
+                        "Nam",
+                        null,
+                        null,
+                        "ysnam@test.com",
+                        "1234",
+                        mutableSetOf(AccountRole.USER))
+                accountService.saveAccount(testUser)
             }
         }
     }
