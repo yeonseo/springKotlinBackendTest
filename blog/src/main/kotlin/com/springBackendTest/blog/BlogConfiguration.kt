@@ -1,5 +1,9 @@
 package com.springBackendTest.blog
 
+import com.springBackendTest.blog.account.Account
+import com.springBackendTest.blog.account.AccountRole
+import com.springBackendTest.blog.account.AccountService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -11,7 +15,15 @@ class BlogConfiguration {
     fun databaseInitializer(userRepository: UserRepository,
                             articleRepository: ArticleRepository) = ApplicationRunner {
 
-        val smaldini = userRepository.save(User("smaldini", "Stéphane", "Maldini"))
+        val smaldini = userRepository.save(Account(
+                "smaldini",
+                "Stéphane",
+                "Maldini",
+                null,
+                null,
+                "admin@test.com",
+                "password",
+                mutableSetOf(AccountRole.ADMIN, AccountRole.USER)))
         articleRepository.save(Article(
                 title = "Reactor Bismuth is out",
                 headline = "Lorem ipsum",

@@ -27,7 +27,12 @@ class BeanConfig {
 
             @Throws(Exception::class)
             override fun run(args: ApplicationArguments) {
-                val admin = Account(null,
+                val admin = Account(
+                        "smaldini",
+                        "Stéphane",
+                        "Maldini",
+                        null,
+                        null,
                         "admin@test.com",
                         "password",
                         mutableSetOf(AccountRole.ADMIN, AccountRole.USER))

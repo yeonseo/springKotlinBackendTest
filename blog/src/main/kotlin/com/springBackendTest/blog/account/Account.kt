@@ -8,18 +8,24 @@ import java.util.stream.Collectors
 import javax.persistence.*
 
 @Entity
-data class Account(
-    @Id @GeneratedValue
-    var id: Long? = null,
-    var email: String,
-    var password: String,
+class Account(
+        var login: String,
+        var firstname: String,
+        var lastname: String,
+        var description: String? = null,
 
-    @Enumerated(EnumType.STRING)
-    @ElementCollection(fetch = FetchType.EAGER)
-    var roles: MutableSet<AccountRole>,
+        @Id @GeneratedValue
+        var id: Long? = null,
 
-    @CreationTimestamp
-    var createDt: LocalDateTime = LocalDateTime.now()
+        var email: String,
+        var password: String,
+
+        @Enumerated(EnumType.STRING)
+        @ElementCollection(fetch = FetchType.EAGER)
+        var roles: MutableSet<AccountRole>,
+
+        @CreationTimestamp
+        var createDt: LocalDateTime = LocalDateTime.now()
 ){
     fun getAuthorities(): User {
         return User(
@@ -28,4 +34,3 @@ data class Account(
         )
     }
 }
-

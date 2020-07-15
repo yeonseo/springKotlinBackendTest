@@ -1,15 +1,18 @@
 package com.springBackendTest.blog
 
+import com.springBackendTest.blog.account.Account
+import com.springBackendTest.blog.account.AccountRole
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.validation.BindingResult
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.server.ResponseStatusException
-import sun.rmi.runtime.Log
-import javax.servlet.http.HttpServletRequest
 
 @Controller
 class HtmlController(private val repository: ArticleRepository, private val repositoryUser: UserRepository,
@@ -36,19 +39,34 @@ class HtmlController(private val repository: ArticleRepository, private val repo
 
   @GetMapping("/article/create")
   fun articleCreate(model: Model): String {
-    val user = repositoryUser.save(User("ysys", "ys", "nam"))
-//    val article = Article("yyyy", "yyyyy", "yyyyy", user)
-    val article = Article("111", "222", "333", user)
+    val user = repositoryUser.save(Account(
+            "yan",
+            "ys",
+            "Nam",
+            null,
+            null,
+            "ys@test.com",
+            "1234",
+            mutableSetOf(AccountRole.USER)))
+    val article = Article("yyyy", "yyyyy", "yyyyy", user)
     model["user"] = user
     model["article"] = article
     model["title"] = "create Article"
-//    repository.save(article)
+    repository.save(article)
     return "articleCreate"
   }
 
   @PostMapping("/article/create")
   fun create(requestArticle : Article, result: BindingResult) : String {
-    val user = repositoryUser.save(User("ysys", "ys", "nam"))
+    val user = repositoryUser.save(Account(
+            "yan",
+            "ys",
+            "Nam",
+            null,
+            null,
+            "ys@test.com",
+            "1234",
+            mutableSetOf(AccountRole.USER)))
     val article = Article(requestArticle.title, requestArticle.headline
             , requestArticle.content, user)
     article.author = user
@@ -96,6 +114,6 @@ class HtmlController(private val repository: ArticleRepository, private val repo
           val title: String,
           val headline: String,
           val content: String,
-          val author: User,
+          val author: Account,
           val addedAt: String)
 }
