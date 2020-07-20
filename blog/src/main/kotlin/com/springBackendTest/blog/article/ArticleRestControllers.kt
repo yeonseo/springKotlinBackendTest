@@ -1,6 +1,5 @@
 package com.springBackendTest.blog.article
 
-import com.springBackendTest.blog.ArticleRepository
 import com.springBackendTest.blog.Greeting
 import com.springBackendTest.blog.UserRepository
 import org.springframework.http.HttpStatus.*

@@ -4,6 +4,7 @@ import com.springBackendTest.blog.account.Account
 import com.springBackendTest.blog.account.AccountRole
 import com.springBackendTest.blog.account.AccountRepository
 import com.springBackendTest.blog.article.Article
+import com.springBackendTest.blog.article.ArticleRepository
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

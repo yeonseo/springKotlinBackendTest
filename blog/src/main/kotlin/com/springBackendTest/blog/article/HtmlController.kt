@@ -1,6 +1,5 @@
 package com.springBackendTest.blog.article
 
-import com.springBackendTest.blog.ArticleRepository
 import com.springBackendTest.blog.BlogProperties
 import com.springBackendTest.blog.UserRepository
 import com.springBackendTest.blog.account.Account

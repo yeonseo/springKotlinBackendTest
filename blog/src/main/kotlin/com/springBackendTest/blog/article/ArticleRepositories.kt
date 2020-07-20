@@ -1,4 +1,4 @@
-package com.springBackendTest.blog
+package com.springBackendTest.blog.article
 
 import com.springBackendTest.blog.account.Account
 import com.springBackendTest.blog.article.Article

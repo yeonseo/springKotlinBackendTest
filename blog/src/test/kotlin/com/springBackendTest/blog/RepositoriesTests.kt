@@ -1,6 +1,7 @@
 package com.springBackendTest.blog
 
 import com.springBackendTest.blog.article.Article
+import com.springBackendTest.blog.article.ArticleRepository
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired

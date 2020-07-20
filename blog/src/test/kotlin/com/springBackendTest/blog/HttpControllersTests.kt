@@ -2,6 +2,7 @@ package com.springBackendTest.blog
 
 import com.ninjasquad.springmockk.MockkBean
 import com.springBackendTest.blog.article.Article
+import com.springBackendTest.blog.article.ArticleRepository
 import io.mockk.every
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
