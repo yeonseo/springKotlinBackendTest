@@ -6,10 +6,11 @@
         <p class="article-meta"><strong>Success!!!!</strong></p>
 
         <form th:object="${requestArticle}" action="/article/create" id="requestArticle" name="requestArticle" method="POST">
-            <input name="title">{{article.title}}<br>
-            <input name="headline">{{article.headline}}<br>
-            <input name="content">{{article.content}}<br>
-            <input name="author">{{article.author}}<br>
+            <div class="form-group">
+                <input type="text" th:field="*{title}" name="title" id="title" class="form-control" placeholder="Title" required="required"><br>
+            </div>
+            <input name="headline"><br>
+            <input name="content"><br>
             <button type="submit">확인</button>
         </form>
     </header>
