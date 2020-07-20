@@ -1,6 +1,7 @@
-package com.springBackendTest.blog
+package com.springBackendTest.blog.article
 
 import com.springBackendTest.blog.account.Account
+import com.springBackendTest.blog.config.toSlug
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -13,11 +14,3 @@ class Article(
     var slug: String = title.toSlug(),
     var addedAt: LocalDateTime = LocalDateTime.now(),
     @Id @GeneratedValue var id: Long? = null)
-
-//@Entity
-//class User(
-//    var login: String,
-//    var firstname: String,
-//    var lastname: String,
-//    var description: String? = null,
-//    @Id @GeneratedValue var id: Long? = null)

@@ -2,8 +2,8 @@ package com.springBackendTest.blog
 
 import com.springBackendTest.blog.account.Account
 import com.springBackendTest.blog.account.AccountRole
-import com.springBackendTest.blog.account.AccountService
-import org.springframework.beans.factory.annotation.Autowired
+import com.springBackendTest.blog.account.AccountRepository
+import com.springBackendTest.blog.article.Article
 import org.springframework.boot.ApplicationRunner
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -12,10 +12,10 @@ import org.springframework.context.annotation.Configuration
 class BlogConfiguration {
 
     @Bean
-    fun databaseInitializer(userRepository: UserRepository,
+    fun databaseInitializer(accountRepository: AccountRepository,
                             articleRepository: ArticleRepository) = ApplicationRunner {
 
-        val smaldini = userRepository.save(Account(
+        val smaldini = accountRepository.save(Account(
                 "smaldini",
                 "Stéphane",
                 "Maldini",

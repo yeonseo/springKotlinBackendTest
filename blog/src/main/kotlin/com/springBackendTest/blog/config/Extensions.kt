@@ -1,4 +1,4 @@
-package com.springBackendTest.blog
+package com.springBackendTest.blog.config
 
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatterBuilder

@@ -1,5 +1,6 @@
 package com.springBackendTest.blog
 
+import com.springBackendTest.blog.config.toSlug
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll

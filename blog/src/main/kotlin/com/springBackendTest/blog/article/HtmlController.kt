@@ -1,7 +1,11 @@
-package com.springBackendTest.blog
+package com.springBackendTest.blog.article
 
+import com.springBackendTest.blog.ArticleRepository
+import com.springBackendTest.blog.BlogProperties
+import com.springBackendTest.blog.UserRepository
 import com.springBackendTest.blog.account.Account
 import com.springBackendTest.blog.account.AccountRole
+import com.springBackendTest.blog.config.format
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
