@@ -1,8 +1,8 @@
 package com.springBackendTest.blog.article
 
 import com.springBackendTest.blog.BlogProperties
-import com.springBackendTest.blog.UserRepository
 import com.springBackendTest.blog.account.Account
+import com.springBackendTest.blog.account.AccountRepository
 import com.springBackendTest.blog.account.AccountRole
 import com.springBackendTest.blog.config.format
 import org.springframework.http.HttpStatus
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 @Controller
-class HtmlController(private val repository: ArticleRepository, private val repositoryUser: UserRepository,
+class HtmlController(private val repository: ArticleRepository, private val repositoryAccount: AccountRepository,
                      private val properties: BlogProperties) {
 
   @GetMapping("/")
@@ -45,7 +45,7 @@ class HtmlController(private val repository: ArticleRepository, private val repo
 
   @GetMapping("/article/create")
   fun articleCreate(model: Model): String {
-    val user = repositoryUser.save(Account(
+    val user = repositoryAccount.save(Account(
             "yan",
             "ys",
             "Nam",

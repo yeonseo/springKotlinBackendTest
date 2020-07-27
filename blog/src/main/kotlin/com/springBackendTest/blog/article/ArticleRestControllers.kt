@@ -1,7 +1,6 @@
 package com.springBackendTest.blog.article
 
 import com.springBackendTest.blog.Greeting
-import com.springBackendTest.blog.UserRepository
 import org.springframework.http.HttpStatus.*
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
